@@ -159,7 +159,7 @@ h5,
   position: absolute;
   width: 100px;
   height: 1px;
-  background: #f16821;
+  background: #ff0000;
 }
 .site-section-heading.text-center:after {
   content: "";
@@ -172,7 +172,7 @@ h5,
   position: absolute;
   width: 100px;
   height: 1px;
-  background: #f16821;
+  background: #ff0000;
 }
 
 .border-top {
@@ -1346,7 +1346,7 @@ h5,
   width: 80px;
   height: 4px;
   margin-top: -4px;
-  background: #f16821;
+  background: #ff0000;
   top: 0;
 }
 .block-12 .text .text-inner .heading {
@@ -1455,7 +1455,7 @@ h5,
   position: absolute;
   width: 30px;
   height: 30px;
-  background: #f16821;
+  background: #ff0000;
   border-radius: 50%;
   color: #fff;
 }
@@ -1500,7 +1500,7 @@ h5,
 }
 .site-block-27 ul li.active a,
 .site-block-27 ul li.active span {
-  background: #f16821;
+  background: #ff0000;
   color: #fff;
   border: 1px solid transparent;
 }
@@ -1634,7 +1634,7 @@ h5,
 .feature-1,
 .free-quote,
 .feature-3 {
-  background: #f16821;
+  background: #ff0000;
   padding: 30px 50px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 15px;
@@ -1671,7 +1671,7 @@ h5,
 }
 
 .free-quote {
-  background: #ea5a0f;
+  background: #ff0000;
 }
 .free-quote .form-control {
   border: 2px solid rgba(255, 255, 255, 0.5);
@@ -1708,7 +1708,7 @@ h5,
 }
 
 .feature-3 {
-  background: #e0560e;
+  background: #ff0000;
 }
 
 .border-primary {
@@ -1724,7 +1724,7 @@ h5,
   bottom: 0;
   width: 80px;
   height: 3px;
-  background: #f16821;
+  background: #ff0000;
 }
 .border-primary.text-center:after {
   left: 50%;
@@ -1738,25 +1738,25 @@ h5,
   transform: translateX(0%);
 }
 
-.testimonial {
-  max-width: 800px;
-  margin: 0 auto !important;
-  text-align: center;
+/* CSS untuk memastikan gambar responsif */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
 }
-.testimonial blockquote {
-  font-style: italic;
+
+/* Tambahan styling untuk tim member */
+.team-member {
+  text-align: center; /* Memastikan gambar dan konten di tengah */
+  padding: 15px; /* Memberikan sedikit ruang di sekitar gambar */
 }
-.testimonial blockquote p {
-  font-size: 1.5rem;
+
+/* Jika Anda ingin menambahkan efek hover pada gambar */
+.team-member img {
+  transition: transform 0.3s ease; /* Efek transisi */
 }
-.testimonial blockquote p.author {
-  font-size: 1rem;
-  font-style: normal;
-}
-.testimonial figure img {
-  max-width: 100px;
-  margin: 0 auto;
-  border-radius: 50%;
+
+.team-member img:hover {
+  transform: scale(1.05); /* Membesarkan gambar saat hover */
 }
 
 .breadcrumb-custom {
@@ -1773,7 +1773,7 @@ h5,
   width: 50px;
   height: 50px;
   border: 4px solid #fff;
-  background: #f16821;
+  background: #ff0000;
   color: #fff;
   line-height: 44px;
   font-weight: 300;
@@ -1839,7 +1839,7 @@ h5,
   line-height: 40px;
   border-radius: 50%;
   display: inline-block;
-  background: #f16821;
+  background: #ff0000;
   color: #fff;
 }
 
