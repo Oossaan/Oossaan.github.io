@@ -44,6 +44,7 @@
                   </ul>
                 </li>
                 <li><a href="#section-services" class="nav-link">Jasa Kami</a></li>
+                <li><a href="#section-promosi" class="nav-link">Area Promosi</a></li>
                 <li><a href="#section-contact" class="nav-link">Order Sekarang</a></li>
               </ul>
             </nav>
@@ -55,7 +56,7 @@
       </div>
     </header>
 
-    <div class="site-blocks-cover overlay" style="background-image: url(images/slideshow/4.png)" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
+    <div class="site-blocks-cover overlay" style="background-image: url(images/logo.png)" data-aos="fade" data-stellar-background-ratio="0.5" id="section-home">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
@@ -95,11 +96,11 @@
       </div>
     </div>
 
-    <div class="site-section bg-image overlay" style="background-image: url('images/slideshow/5.png')" id="section-how-it-works">
+    <div class="site-section bg-image overlay" style="background-image: url('images/logo.png')" id="section-how-it-works">
       <div class="container">
         <div class="row justify-content-center mb-5" data-aos="fade-up">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="mb-0 text-white">How It Works</h2>
+            <h2 class="mb-0 text-white">Cara Kerja Kami</h2>
             <p class="color-black-opacity-5 text-white">Berikut adalah cara kami bekerja untuk memberikan layanan terbaik.</p>
           </div>
         </div>
@@ -198,7 +199,7 @@
       </div>
     </div>
 
-    <div class="site-section block-13" id="section-videos">
+    <div class="site-section block-13" id="section-promosi">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
@@ -207,65 +208,59 @@
           </div>
         </div>
 
-        <div class="owl-carousel nonloop-block-13">
+        <div class="video-catalog">
           <div class="video-container" onclick="playVideo(0)">
             <div class="video-overlay">
               <span class="icon-play"></span>
             </div>
-            <video id="promoVideo" muted>
-              <source src="video/story1.mp4" type="video/mp4" />
+            <video muted>
+              <source src="video/fanmie.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <div class="video-title">Fan Mie</div>
           </div>
           <div class="video-container" onclick="playVideo(1)">
             <div class="video-overlay">
               <span class="icon-play"></span>
             </div>
-            <video id="promoVideo2" muted>
-              <source src="video/story2.mp4" type="video/mp4" />
+            <video muted>
+              <source src="video/dapur_athaaa.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <div class="video-title">Dapur Athaaa</div>
           </div>
           <div class="video-container" onclick="playVideo(2)">
             <div class="video-overlay">
               <span class="icon-play"></span>
             </div>
-            <video id="promoVideo3" muted>
-              <source src="video/story3.mp4" type="video/mp4" />
+            <video muted>
+              <source src="video/kedai_humaira.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            <div class="video-title">Kedai Humaira</div>
           </div>
-        </div>
-
-        <!-- Video Display Area -->
-        <div id="videoDisplay" class="video-display" style="display: none">
-          <button class="close-button" onclick="closeVideo()">✖</button>
-          <video id="displayedVideo" controls>
-            <source id="displayedVideoSource" src="" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
         </div>
       </div>
     </div>
 
     <style>
-      .slider-container {
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px; /* Rounded corners */
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
-        background: rgba(255, 255, 255, 0.8); /* Light background for contrast */
-        padding: 20px; /* Padding around the video */
+      .video-catalog {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .video-container {
         position: relative;
-        padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
         height: 0;
-        margin: 10px; /* Space between videos */
-        border-radius: 10px; /* Rounded corners */
-        overflow: hidden; /* Hide overflow */
-        transition: transform 0.3s ease; /* Smooth transition */
+        margin: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        border: 2px solid #ccc;
+        width: 300px; /* Fixed width for each video */
+        cursor: pointer; /* Change cursor to pointer */
       }
 
       .video-container video {
@@ -274,7 +269,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 10px; /* Rounded corners */
+        border-radius: 10px;
+        object-fit: cover; /* Maintain aspect ratio */
       }
 
       .video-overlay {
@@ -285,48 +281,30 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 60px; /* Width of the play button */
-        height: 60px; /* Height of the play button */
-        background: rgba(255, 255, 255, 0.8); /* Light background for contrast */
-        border-radius: 50%; /* Circular overlay */
-        cursor: pointer;
-        opacity: 0.8; /* Slightly transparent */
-        transition: opacity 0.3s; /* Smooth transition */
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        opacity: 0.8;
+        transition: opacity 0.3s;
       }
 
       .video-container:hover .video-overlay {
-        opacity: 1; /* Fully visible on hover */
+        opacity: 1;
       }
 
       .icon-play {
-        font-size: 30px; /* Size of the play icon */
-        color: #007bff; /* Play icon color */
+        font-size: 30px;
+        color: #007bff;
       }
 
-      .video-display {
-        margin-top: 20px;
+      .video-title {
         text-align: center;
-        display: none; /* Hidden by default */
+        margin-top: 5px;
+        font-weight: bold;
+        color: #333;
       }
 
-      .video-display video {
-        width: 100%; /* Full width for responsiveness */
-        max-width: 800px; /* Max width for larger screens */
-        border-radius: 10px; /* Rounded corners */
-      }
-
-      .close-button {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-      }
-
-      /* Additional styling for better visuals */
       .container {
         margin-top: 20px;
       }
@@ -336,50 +314,22 @@
         margin-bottom: 20px;
       }
 
-      .video-container {
-        border: 2px solid #ccc; /* Border around video */
-        transition: transform 0.3s; /* Smooth scaling effect */
-      }
-
       .video-container:hover {
-        transform: scale(1.05); /* Scale up on hover */
+        transform: scale(1.05);
       }
     </style>
 
     <script>
-      const videos = document.querySelectorAll(".video-container");
-      const videoDisplay = document.getElementById("videoDisplay");
-      const displayedVideo = document.getElementById("displayedVideo");
-      const displayedVideoSource = document.getElementById("displayedVideoSource");
+      const videos = document.querySelectorAll(".video-container video");
 
-      // Function to play video
       function playVideo(index) {
-        const video = videos[index].querySelector("video");
-        displayedVideoSource.src = video.querySelector("source").src;
-        displayedVideo.load();
-        videoDisplay.style.display = "block";
-        displayedVideo.play();
+        const video = videos[index];
+        // Pause all videos before playing the selected one
+        videos.forEach((v) => v.pause());
+        // Play the selected video
+        video.muted = false; // Unmute the video
+        video.play();
       }
-
-      // Function to close video
-      function closeVideo() {
-        displayedVideo.pause();
-        videoDisplay.style.display = "none";
-      }
-
-      // Event listener to close video on any key press
-      document.addEventListener("keydown", function () {
-        if (videoDisplay.style.display === "block") {
-          closeVideo();
-        }
-      });
-
-      // Event listener to close video on click
-      displayedVideo.addEventListener("click", function () {
-        if (videoDisplay.style.display === "block") {
-          closeVideo();
-        }
-      });
     </script>
     <div class="site-section border-bottom">
       <div class="container">
@@ -431,25 +381,25 @@
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="name">Nama</label>
-                  <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required />
+                  <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required aria-label="Nama" />
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="phone">Nomor HP</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Masukkan nomor HP Anda" required />
+                  <input type="text" id="phone" class="form-control" placeholder="Masukkan nomor HP Anda" required aria-label="Nomor HP" pattern="\d+" title="Hanya angka yang diperbolehkan" />
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="address">Alamat</label>
-                  <input type="text" id="address" class="form-control" placeholder="Masukkan alamat Anda" required />
+                  <input type="text" id="address" class="form-control" placeholder="Masukkan alamat Anda" required aria-label="Alamat" />
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="service">Kategori Jasa</label>
-                  <select id="service" class="form-control" required>
+                  <select id="service" class="form-control" required aria-label="Kategori Jasa">
                     <option value="">Pilih Kategori Jasa</option>
                     <option value="Lucky Market">Lucky Market - Layanan belanja kebutuhan sehari-hari dari pasar terdekat.</option>
                     <option value="Lucky Package">Lucky Package - Pengiriman paket dengan cepat dan aman ke alamat tujuan.</option>
@@ -460,17 +410,64 @@
                 </div>
               </div>
 
-              <div class="row form-group" id="otherServiceContainer" style="display: none">
+              <div class="row form-group" id="marketContainer" style="display: none">
                 <div class="col-md-12">
-                  <label class="text-black" for="otherService">Silakan isi untuk jasa lainnya</label>
-                  <input type="text" id="otherService" class="form-control" placeholder="Masukkan jasa lainnya" />
+                  <label class="text-black" for="market">Pilih Pasar</label>
+                  <select id="market" class="form-control">
+                    <option value="">Pilih Pasar</option>
+                    <option value="Pasar Impres">Pasar Impres</option>
+                    <option value="Pasar Bukit Sulap">Pasar Bukit Sulap</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row form-group" id="packageContainer" style="display: none">
+                <div class="col-md-12">
+                  <label class="text-black" for="pickupAddress">Alamat Pengambilan</label>
+                  <input type="text" id="pickupAddress" class="form-control" placeholder="Masukkan alamat pengambilan" aria-label="Alamat Pengambilan" required />
+                </div>
+                <div class="col-md-12">
+                  <label class="text-black" for="recipientName">Nama Penerima</label>
+                  <input type="text" id="recipientName" class="form-control" placeholder="Masukkan nama penerima" aria-label="Nama Penerima" required />
+                </div>
+                <div class="col-md-12">
+                  <label class="text-black" for="recipientPhone">Nomor HP Penerima</label>
+                  <input type="text" id="recipientPhone" class="form-control" placeholder="Masukkan nomor HP penerima" aria-label="Nomor HP Penerima" pattern="\d+" title="Hanya angka yang diperbolehkan" required />
+                </div>
+                <div class="col-md-12">
+                  <label class="text-black" for="recipientAddress">Alamat Penerima</label>
+                  <input type="text" id="recipientAddress" class="form-control" placeholder="Masukkan alamat penerima" aria-label="Alamat Penerima" required />
+                </div>
+              </div>
+
+              <div class="row form-group" id="foodContainer" style="display: none">
+                <div class="col-md-12">
+                  <label class="text-black" for="restaurant">Pilih Restoran</label>
+                  <select id="restaurant" class="form-control" required>
+                    <option value="">Pilih Restoran</option>
+                    <!-- Options will be populated from JSON -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="row form-group" id="bikeContainer" style="display: none">
+                <div class="col-md-12">
+                  <label class="text-black" for="pickupAddressBike">Alamat Penjemputan</label>
+                  <input type="text" id="pickupAddressBike" class="form-control" placeholder="Masukkan alamat penjemputan" aria-label="Alamat Penjemputan" required />
+                </div>
+                <div class="col-md-12">
+                  <label class="text-black" for="deliveryAddressBike">Alamat Pengantaran</label>
+                  <input type="text" id="deliveryAddressBike" class="form-control" placeholder="Masukkan alamat pengantaran" aria-label="Alamat Pengantaran" required />
+                </div>
+                <div class="col-md-12">
+                  <label> <input type="checkbox" id="orderForOthers" /> Memesan untuk orang lain</label>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Pesan</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Tulis pesan Anda di sini..."></textarea>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Tulis pesan Anda di sini..." aria-label="Pesan"></textarea>
                 </div>
               </div>
 
@@ -484,17 +481,35 @@
         </div>
       </div>
     </div>
+
     <script>
       document.getElementById("orderForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent default form submission
 
         // Retrieve values from input fields
-        const name = document.getElementById("name").value;
-        const phone = document.getElementById("phone").value;
-        const address = document.getElementById("address").value;
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
         const service = document.getElementById("service").value;
-        const otherService = document.getElementById("otherService").value;
-        const message = document.getElementById("message").value;
+        const market = document.getElementById("market").value;
+        const pickupAddress = document.getElementById("pickupAddress").value.trim();
+        const recipientName = document.getElementById("recipientName").value.trim();
+        const recipientPhone = document.getElementById("recipientPhone").value.trim();
+        const recipientAddress = document.getElementById("recipientAddress").value.trim();
+        const restaurant = document.getElementById("restaurant").value;
+        const pickupAddressBike = document.getElementById("pickupAddressBike").value.trim();
+        const deliveryAddressBike = document.getElementById("deliveryAddressBike").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Validate phone numbers
+        if (!/^\d+$/.test(phone)) {
+          alert("Nomor HP hanya boleh mengandung angka.");
+          return;
+        }
+        if (recipientPhone && !/^\d+$/.test(recipientPhone)) {
+          alert("Nomor HP penerima hanya boleh mengandung angka.");
+          return;
+        }
 
         // Get current date and time
         const now = new Date();
@@ -502,16 +517,7 @@
         const time = now.toLocaleTimeString(); // Time format
 
         // Create message for WhatsApp
-        const serviceDescriptions = {
-          "Lucky Market": "Layanan belanja kebutuhan sehari-hari dari pasar terdekat.",
-          "Lucky Package": "Pengiriman paket dengan cepat dan aman ke alamat tujuan.",
-          "Lucky Food": "Layanan pengantaran makanan dari restoran pilihan Anda.",
-          "Lucky Bike": "Jasa antar jemput menggunakan sepeda untuk jarak dekat.",
-          "Jasa Lainnya": otherService,
-        };
-
-        const selectedServiceDescription = serviceDescriptions[service] || "";
-        const whatsappMessage = `*Pesanan Baru*\n\n*Nama:* ${name}\n*Nomor HP:* ${phone}\n*Alamat:* ${address}\n*Kategori Jasa:* ${service}\n*Deskripsi:* ${selectedServiceDescription}\n*Tanggal:* ${date}\n*Waktu:* ${time}\n*Pesan:* ${message}`;
+        const whatsappMessage = createWhatsAppMessage(name, phone, address, service, market, pickupAddress, recipientName, recipientPhone, recipientAddress, restaurant, pickupAddressBike, deliveryAddressBike, date, time, message);
 
         // Encode message for URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -523,47 +529,105 @@
         window.open(whatsappUrl, "_blank"); // Open WhatsApp in a new tab
       });
 
-      // Show additional input if "Jasa Lainnya" is selected
+      function createWhatsAppMessage(name, phone, address, service, market, pickupAddress, recipientName, recipientPhone, recipientAddress, restaurant, pickupAddressBike, deliveryAddressBike, date, time, message) {
+        let deliveryInfo = "";
+        if (service === "Lucky Market") {
+          deliveryInfo = `*Pasar:* ${market}\n*Alamat:* ${address}`;
+        } else if (service === "Lucky Package") {
+          deliveryInfo = `*Alamat Pengambilan:* ${pickupAddress}\n*Nama Penerima:* ${recipientName}\n*Nomor HP Penerima:* ${recipientPhone}\n*Alamat Penerima:* ${recipientAddress}`;
+        } else if (service === "Lucky Food") {
+          deliveryInfo = `*Restoran:* ${restaurant}\n*Alamat:* ${address}`;
+        } else if (service === "Lucky Bike") {
+          deliveryInfo = `*Alamat Penjemputan:* ${pickupAddressBike}\n*Alamat Pengantaran:* ${deliveryAddressBike}`;
+        }
+
+        return `*Pesanan Baru*\n\n*Nama:* ${name}\n*Nomor HP:* ${phone}\n${deliveryInfo}\n*Kategori Jasa:* ${service}\n*Tanggal:* ${date}\n*Waktu:* ${time}\n*Pesan:* ${message}`;
+      }
+
+      // Show additional input based on selected service
       document.getElementById("service").addEventListener("change", function () {
-        const otherServiceContainer = document.getElementById("otherServiceContainer");
-        if (this.value === "Jasa Lainnya") {
-          otherServiceContainer.style.display = "block";
-        } else {
-          otherServiceContainer.style.display = "none";
-          document.getElementById("otherService").value = ""; // Reset input
+        const marketContainer = document.getElementById("marketContainer");
+        const packageContainer = document.getElementById("packageContainer");
+        const foodContainer = document.getElementById("foodContainer");
+        const bikeContainer = document.getElementById("bikeContainer");
+
+        // Hide all containers initially
+        marketContainer.style.display = "none";
+        packageContainer.style.display = "none";
+        foodContainer.style.display = "none";
+        bikeContainer.style.display = "none";
+
+        // Remove required attributes from all fields
+        document.querySelectorAll("#market, #pickupAddress, #recipientName, #recipientPhone, #recipientAddress, #restaurant, #pickupAddressBike, #deliveryAddressBike").forEach((input) => {
+          input.removeAttribute("required");
+        });
+
+        // Show relevant container based on selected service
+        if (this.value === "Lucky Market") {
+          marketContainer.style.display = "block";
+          document.getElementById("market").setAttribute("required", "required");
+        } else if (this.value === "Lucky Package") {
+          packageContainer.style.display = "block";
+          document.getElementById("pickupAddress").setAttribute("required", "required");
+          document.getElementById("recipientName").setAttribute("required", "required");
+          document.getElementById("recipientPhone").setAttribute("required", "required");
+          document.getElementById("recipientAddress").setAttribute("required", "required");
+        } else if (this.value === "Lucky Food") {
+          foodContainer.style.display = "block";
+          document.getElementById("restaurant").setAttribute("required", "required");
+          loadRestaurants(); // Load restaurants from JSON
+        } else if (this.value === "Lucky Bike") {
+          bikeContainer.style.display = "block";
+          document.getElementById("pickupAddressBike").setAttribute("required", "required");
+          document.getElementById("deliveryAddressBike").setAttribute("required", "required");
         }
       });
+
+      function loadRestaurants() {
+        fetch("data/data_resto.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const restaurantSelect = document.getElementById("restaurant");
+            restaurantSelect.innerHTML = '<option value="">Pilih Restoran</option>'; // Reset options
+            data.restaurants.forEach((restaurant) => {
+              const option = document.createElement("option");
+              option.value = restaurant.name;
+              option.textContent = restaurant.name;
+              restaurantSelect.appendChild(option);
+            });
+          })
+          .catch((error) => console.error("Error loading restaurant data:", error));
+      }
     </script>
 
     <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="footer-heading mb-4">About Us</h2>
+            <h2 class="footer-heading mb-4">Tentang Kami</h2>
             <p>
-              Selamat datang di Jastip Lucky, solusi terpercaya untuk kebutuhan jasa titip Anda! Kami adalah tim yang berdedikasi untuk memberikan pengalaman belanja yang mudah dan menyenangkan bagi Anda. Dengan memahami kesibukan dan
-              tuntutan hidup modern, kami hadir untuk membantu Anda mendapatkan barang-barang impian tanpa harus repot. Di Jastip Lucky, kami menawarkan layanan titip beli yang aman dan efisien. ingin menghemat waktu? Kami siap membantu!
-              Tim kami yang berpengalaman akan memastikan setiap transaksi berjalan lancar, mulai dari pemesanan hingga pengiriman. Kami percaya bahwa setiap pelanggan adalah bagian dari keluarga besar kami. Oleh karena itu, kami
-              berkomitmen untuk memberikan pelayanan terbaik, transparansi, dan kepercayaan. Dengan sistem yang mudah digunakan dan dukungan pelanggan yang responsif, kami berusaha untuk memenuhi setiap kebutuhan Anda. Bergabunglah dengan
-              kami dan nikmati kemudahan berbelanja tanpa batas. Di Jastip Lucky, kami tidak hanya sekadar jasa titip, tetapi juga mitra belanja Anda!
+              Selamat datang di <strong>Jastip Lucky</strong>, solusi terpercaya untuk kebutuhan jasa titip Anda! Kami adalah tim yang berdedikasi untuk memberikan pengalaman belanja yang mudah dan menyenangkan bagi Anda. Dengan memahami
+              kesibukan dan tuntutan hidup modern, kami hadir untuk membantu Anda mendapatkan barang-barang impian tanpa harus repot. Di Jastip Lucky, kami menawarkan layanan titip beli yang aman dan efisien. Ingin menghemat waktu? Kami
+              siap membantu! Tim kami yang berpengalaman akan memastikan setiap transaksi berjalan lancar, mulai dari pemesanan hingga pengiriman. Kami percaya bahwa setiap pelanggan adalah bagian dari keluarga besar kami. Oleh karena itu,
+              kami berkomitmen untuk memberikan pelayanan terbaik, transparansi, dan kepercayaan. Dengan sistem yang mudah digunakan dan dukungan pelanggan yang responsif, kami berusaha untuk memenuhi setiap kebutuhan Anda. Bergabunglah
+              dengan kami dan nikmati kemudahan berbelanja tanpa batas. Di Jastip Lucky, kami tidak hanya sekadar jasa titip, tetapi juga mitra belanja Anda!
             </p>
           </div>
         </div>
         <div class="row pt-5 mt-5 text-center">
           <div class="col-md-12">
             <div class="border-top pt-5">
-              <p>
-                Copyright &copy;
-                <script>
-                  document.write(new Date().getFullYear());
-                </script>
-                All rights reserved
-              </p>
+              <p>&copy; <span id="current-year"></span> Jastip Lucky. All rights reserved.</p>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      // Update the current year dynamically
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
