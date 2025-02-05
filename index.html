@@ -389,14 +389,14 @@
                   <input type="text" id="phone" class="form-control" placeholder="Masukkan nomor HP Anda" required aria-label="Nomor HP" pattern="\d+" title="Hanya angka yang diperbolehkan" />
                 </div>
               </div>
-
+    
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="address">Alamat</label>
                   <input type="text" id="address" class="form-control" placeholder="Masukkan alamat Anda" required aria-label="Alamat" />
                 </div>
               </div>
-
+    
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="service">Kategori Jasa</label>
@@ -410,7 +410,7 @@
                   </select>
                 </div>
               </div>
-
+    
               <div class="row form-group" id="marketContainer" style="display: none">
                 <div class="col-md-12">
                   <label class="text-black" for="market">Pilih Pasar</label>
@@ -421,7 +421,7 @@
                   </select>
                 </div>
               </div>
-
+    
               <div class="row form-group" id="packageContainer" style="display: none">
                 <div class="col-md-12">
                   <label class="text-black" for="pickupAddress">Alamat Pengambilan</label>
@@ -440,7 +440,7 @@
                   <input type="text" id="recipientAddress" class="form-control" placeholder="Masukkan alamat penerima" aria-label="Alamat Penerima" required />
                 </div>
               </div>
-
+    
               <div class="row form-group" id="foodContainer" style="display: none">
                 <div class="col-md-12">
                   <label class="text-black" for="restaurant">Pilih Restoran</label>
@@ -457,7 +457,7 @@
                   </select>
                 </div>
               </div>
-
+    
               <div class="row form-group" id="bikeContainer" style="display: none">
                 <div class="col-md-12">
                   <label class="text-black" for="pickupAddressBike">Alamat Penjemputan</label>
@@ -468,17 +468,17 @@
                   <input type="text" id="deliveryAddressBike" class="form-control" placeholder="Masukkan alamat pengantaran" aria-label="Alamat Pengantaran" required />
                 </div>
                 <div class="col-md-12">
-                  <label> <input type="checkbox" id="orderForOthers" /> Memesan untuk orang lain</label>
+                  <label><input type="checkbox" id="orderForOthers" /> Memesan untuk orang lain</label>
                 </div>
               </div>
-
+    
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Pesan</label>
                   <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Tulis pesan Anda di sini..." aria-label="Pesan"></textarea>
                 </div>
               </div>
-
+    
               <div class="row form-group">
                 <div class="col-md-12">
                   <input type="submit" value="Kirim Pesan" class="btn btn-primary py-2 px-4 text-white" />
@@ -489,87 +489,88 @@
         </div>
       </div>
     </div>
-
+    
     <script>
-      document.getElementById("orderForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
+document.getElementById("orderForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
 
-        // Retrieve values from input fields
-        const name = document.getElementById("name").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const address = document.getElementById("address").value.trim();
-        const service = document.getElementById("service").value;
-        const market = document.getElementById("market").value;
-        const pickupAddress = document.getElementById("pickupAddress").value.trim();
-        const recipientName = document.getElementById("recipientName").value.trim();
-        const recipientPhone = document.getElementById("recipientPhone").value.trim();
-        const recipientAddress = document.getElementById("recipientAddress").value.trim();
-        const restaurant = document.getElementById("restaurant").value;
-        const pickupAddressBike = document.getElementById("pickupAddressBike").value.trim();
-        const deliveryAddressBike = document.getElementById("deliveryAddressBike").value.trim();
-        const message = document.getElementById("message").value.trim();
+  // Retrieve values from input fields
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const service = document.getElementById("service").value;
+  const market = document.getElementById("market").value;
+  const pickupAddress = document.getElementById("pickupAddress").value.trim();
+  const recipientName = document.getElementById("recipientName").value.trim();
+  const recipientPhone = document.getElementById("recipientPhone").value.trim();
+  const recipientAddress = document.getElementById("recipientAddress").value.trim();
+  const restaurant = document.getElementById("restaurant").options[document.getElementById("restaurant").selectedIndex].text; // Get selected restaurant name
+  const selectedMenu = document.getElementById("menu").value; // Get selected menu
+  const pickupAddressBike = document.getElementById("pickupAddressBike").value.trim();
+  const deliveryAddressBike = document.getElementById("deliveryAddressBike").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-        // Validate phone numbers
-        if (!/^\d+$/.test(phone)) {
-          alert("Nomor HP hanya boleh mengandung angka.");
-          return;
-        }
-        if (recipientPhone && !/^\d+$/.test(recipientPhone)) {
-          alert("Nomor HP penerima hanya boleh mengandung angka.");
-          return;
-        }
+  // Validate phone numbers
+  if (!/^\d+$/.test(phone)) {
+    alert("Nomor HP hanya boleh mengandung angka.");
+    return;
+  }
+  if (recipientPhone && !/^\d+$/.test(recipientPhone)) {
+    alert("Nomor HP penerima hanya boleh mengandung angka.");
+    return;
+  }
 
-        // Get current date and time
-        const now = new Date();
-        const date = now.toLocaleDateString(); // Date format
-        const time = now.toLocaleTimeString(); // Time format
+  // Get current date and time
+  const now = new Date();
+  const date = now.toLocaleDateString(); // Date format
+  const time = now.toLocaleTimeString(); // Time format
 
-        // Create message for WhatsApp
-        const whatsappMessage = createWhatsAppMessage(name, phone, address, service, market, pickupAddress, recipientName, recipientPhone, recipientAddress, restaurant, pickupAddressBike, deliveryAddressBike, date, time, message);
+  // Create message for WhatsApp
+  const whatsappMessage = createWhatsAppMessage(name, phone, address, service, market, pickupAddress, recipientName, recipientPhone, recipientAddress, restaurant, selectedMenu, pickupAddressBike, deliveryAddressBike, date, time, message);
 
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(whatsappMessage);
+  // Encode message for URL
+  const encodedMessage = encodeURIComponent(whatsappMessage);
 
-        // Redirect to WhatsApp
-        const phoneNumber = "+6281251955201"; // Replace with your WhatsApp number
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  // Redirect to WhatsApp
+  const phoneNumber = "+6281251955201"; // Replace with your WhatsApp number
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-        window.open(whatsappUrl, "_blank"); // Open WhatsApp in a new tab
-      });
+  window.open(whatsappUrl, "_blank"); // Open WhatsApp in a new tab
+});
 
-      function createWhatsAppMessage(name, phone, address, service, market, pickupAddress, recipientName, recipientPhone, recipientAddress, restaurant, pickupAddressBike, deliveryAddressBike, date, time, message) {
-        let deliveryInfo = "";
-        if (service === "Lucky Market") {
-          deliveryInfo = `*Pasar:* ${market}\n*Alamat:* ${address}`;
-        } else if (service === "Lucky Package") {
-          deliveryInfo = `*Alamat Pengambilan:* ${pickupAddress}\n*Nama Penerima:* ${recipientName}\n*Nomor HP Penerima:* ${recipientPhone}\n*Alamat Penerima:* ${recipientAddress}`;
-        } else if (service === "Lucky Food") {
-          deliveryInfo = `*Restoran:* ${restaurant}\n*Alamat:* ${address}`;
-        } else if (service === "Lucky Bike") {
-          deliveryInfo = `*Alamat Penjemputan:* ${pickupAddressBike}\n*Alamat Pengantaran:* ${deliveryAddressBike}`;
-        }
+function createWhatsAppMessage(name, phone, address, service, market, pickupAddress, recipientName, recipientPhone, recipientAddress, restaurant, selectedMenu, pickupAddressBike, deliveryAddressBike, date, time, message) {
+  let deliveryInfo = "";
+  if (service === "Lucky Market") {
+    deliveryInfo = `*Pasar:* ${market}\n*Alamat:* ${address}`;
+  } else if (service === "Lucky Package") {
+    deliveryInfo = `*Alamat Pengambilan:* ${pickupAddress}\n*Nama Penerima:* ${recipientName}\n*Nomor HP Penerima:* ${recipientPhone}\n*Alamat Penerima:* ${recipientAddress}`;
+  } else if (service === "Lucky Food") {
+    deliveryInfo = `*Restoran:* ${restaurant}\n*Menu:* ${selectedMenu}\n*Alamat:* ${address}`;
+  } else if (service === "Lucky Bike") {
+    deliveryInfo = `*Alamat Penjemputan:* ${pickupAddressBike}\n*Alamat Pengantaran:* ${deliveryAddressBike}`;
+  }
 
-        return `*Pesanan Baru*\n\n*Nama:* ${name}\n*Nomor HP:* ${phone}\n${deliveryInfo}\n*Kategori Jasa:* ${service}\n*Tanggal:* ${date}\n*Waktu:* ${time}\n*Pesan:* ${message}`;
-      }
-
+  return `*Pesanan Baru*\n\n*Nama:* ${name}\n*Nomor HP:* ${phone}\n${deliveryInfo}\n*Kategori Jasa:* ${service}\n*Tanggal:* ${date}\n*Waktu:* ${time}\n*Pesan:* ${message}`;
+}
+    
       // Show additional input based on selected service
       document.getElementById("service").addEventListener("change", function () {
         const marketContainer = document.getElementById("marketContainer");
         const packageContainer = document.getElementById("packageContainer");
         const foodContainer = document.getElementById("foodContainer");
         const bikeContainer = document.getElementById("bikeContainer");
-
+    
         // Hide all containers initially
         marketContainer.style.display = "none";
         packageContainer.style.display = "none";
         foodContainer.style.display = "none";
         bikeContainer.style.display = "none";
-
+    
         // Remove required attributes from all fields
         document.querySelectorAll("#market, #pickupAddress, #recipientName, #recipientPhone, #recipientAddress, #restaurant, #pickupAddressBike, #deliveryAddressBike").forEach((input) => {
           input.removeAttribute("required");
         });
-
+    
         // Show relevant container based on selected service
         if (this.value === "Lucky Market") {
           marketContainer.style.display = "block";
@@ -590,51 +591,51 @@
           document.getElementById("deliveryAddressBike").setAttribute("required", "required");
         }
       });
-
+    
       function loadRestaurants() {
-  fetch("restoran/data/resto.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const restaurantSelect = document.getElementById("restaurant");
-      restaurantSelect.innerHTML = '<option value="">Pilih Restoran</option>'; // Reset options
-      data.forEach((restaurant) => {
-        const option = document.createElement("option");
-        option.value = restaurant.id; // Use id for menu fetching
-        option.textContent = restaurant.nama;
-        restaurantSelect.appendChild(option);
-      });
-    })
-    .catch((error) => console.error("Error loading restaurant data:", error));
-}
-
-// Load menu based on selected restaurant
-document.getElementById("restaurant").addEventListener("change", function () {
-  const selectedRestaurantId = this.value;
-  const menuSelect = document.getElementById("menu");
-  const menuContainer = document.getElementById("menuContainer");
-  
-  // Clear previous menu options
-  menuSelect.innerHTML = '<option value="">Pilih Menu</option>';
-  menuContainer.style.display = "none"; // Hide menu container initially
-
-  if (selectedRestaurantId) {
-    fetch("restoran/data/resto.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const restaurant = data.find(r => r.id == selectedRestaurantId);
-        if (restaurant && restaurant.menu) {
-          restaurant.menu.forEach((item) => {
-            const option = document.createElement("option");
-            option.value = item.nama; // Use menu name as value
-            option.textContent = `${item.nama} - ${item.harga}`;
-            menuSelect.appendChild(option);
-          });
-          menuContainer.style.display = "block"; // Show menu container
+        fetch("restoran/data/resto.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const restaurantSelect = document.getElementById("restaurant");
+            restaurantSelect.innerHTML = '<option value="">Pilih Restoran</option>'; // Reset options
+            data.forEach((restaurant) => {
+              const option = document.createElement("option");
+              option.value = restaurant.id; // Use id for menu fetching
+              option.textContent = restaurant.nama;
+              restaurantSelect.appendChild(option);
+            });
+          })
+          .catch((error) => console.error("Error loading restaurant data:", error));
+      }
+    
+      // Load menu based on selected restaurant
+      document.getElementById("restaurant").addEventListener("change", function () {
+        const selectedRestaurantId = this.value;
+        const menuSelect = document.getElementById("menu");
+        const menuContainer = document.getElementById("menuContainer");
+        
+        // Clear previous menu options
+        menuSelect.innerHTML = '<option value="">Pilih Menu</option>';
+        menuContainer.style.display = "none"; // Hide menu container initially
+    
+        if (selectedRestaurantId) {
+          fetch("restoran/data/resto.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const restaurant = data.find(r => r.id == selectedRestaurantId);
+              if (restaurant && restaurant.menu) {
+                restaurant.menu.forEach((item) => {
+                  const option = document.createElement("option");
+                  option.value = item.nama; // Use menu name as value
+                  option.textContent = `${item.nama} - ${item.harga}`;
+                  menuSelect.appendChild(option);
+                });
+                menuContainer.style.display = "block"; // Show menu container
+              }
+            })
+            .catch((error) => console.error("Error loading menu data:", error));
         }
-      })
-      .catch((error) => console.error("Error loading menu data:", error));
-  }
-});
+      });
     </script>
 
     <footer class="site-footer">
