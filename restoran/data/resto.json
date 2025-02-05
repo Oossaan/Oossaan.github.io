@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nama": "Restoran A",
+        "alamat": "Jl. Contoh A No.1",
+        "rating": 4.5,
+        "menu": [
+            {
+                "nama": "Nasi Goreng",
+                "harga": "25.000"
+            },
+            {
+                "nama": "Mie Ayam",
+                "harga": "20.000"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nama": "Restoran B",
+        "alamat": "Jl. Contoh B No.2",
+        "rating": 4,
+        "menu": [
+            {
+                "nama": "Sushi",
+                "harga": "50.000"
+            },
+            {
+                "nama": "Ramen",
+                "harga": "40.000"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nama": "Restoran C",
+        "alamat": "Jl. Contoh C No.3",
+        "rating": 4.8,
+        "menu": [
+            {
+                "nama": "Pizza",
+                "harga": "80.000"
+            },
+            {
+                "nama": "Pasta",
+                "harga": "60.000"
+            }
+        ]
+    }
+]
