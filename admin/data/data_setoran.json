@@ -1,0 +1,42 @@
+[
+    {
+        "no": 1,
+        "driver": "Lucky Yawan",
+        "totalOrders": "12",
+        "uangOrderan": "24000",
+        "uangKas": "5000",
+        "date": "Sabtu, 1\/2\/2025",
+        "paymentStatus": "bayar",
+        "total": 29000
+    },
+    {
+        "no": 2,
+        "driver": "Lucky Yawan",
+        "totalOrders": "12",
+        "uangOrderan": "24000",
+        "uangKas": "4000",
+        "date": "Minggu, 2\/2\/2025",
+        "paymentStatus": "bayar",
+        "total": 28000
+    },
+    {
+        "no": 3,
+        "driver": "Ardi Tole",
+        "totalOrders": "13",
+        "uangOrderan": "26000",
+        "uangKas": "5000",
+        "date": "Sabtu, 1\/2\/2025",
+        "paymentStatus": "bayar",
+        "total": 31000
+    },
+    {
+        "no": 4,
+        "driver": "Ardi Bew",
+        "totalOrders": "13",
+        "uangOrderan": "26000",
+        "uangKas": "2500",
+        "date": "Sabtu, 1\/2\/2025",
+        "paymentStatus": "bayar",
+        "total": 28500
+    }
+]
