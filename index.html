@@ -41,11 +41,12 @@
                   <a href="#section-about" class="nav-link">Tentang Kami</a>
                   <ul class="dropdown">
                     <li><a href="#section-how-it-works" class="nav-link">Bagaimana Cara Kerja Kami</a></li>
+                    <li><a href="#section-services" class="nav-link">Jasa Kami</a></li>
+                    <li><a href="#section-promosi" class="nav-link">Area Promosi</a></li>
+                    <li><a href="#section-contact" class="nav-link">Order Sekarang</a></li>
                   </ul>
+                  <li><a href="restoran" class="nav-link">Restoran</a></li>
                 </li>
-                <li><a href="#section-services" class="nav-link">Jasa Kami</a></li>
-                <li><a href="#section-promosi" class="nav-link">Area Promosi</a></li>
-                <li><a href="#section-contact" class="nav-link">Order Sekarang</a></li>
               </ul>
             </nav>
           </div>
@@ -448,6 +449,13 @@
                     <!-- Options will be populated from JSON -->
                   </select>
                 </div>
+                <div class="col-md-12" id="menuContainer" style="display: none;">
+                  <label class="text-black" for="menu">Pilih Menu</label>
+                  <select id="menu" class="form-control" required>
+                    <option value="">Pilih Menu</option>
+                    <!-- Options will be populated based on selected restaurant -->
+                  </select>
+                </div>
               </div>
 
               <div class="row form-group" id="bikeContainer" style="display: none">
@@ -584,20 +592,49 @@
       });
 
       function loadRestaurants() {
-        fetch("data/data_resto.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const restaurantSelect = document.getElementById("restaurant");
-            restaurantSelect.innerHTML = '<option value="">Pilih Restoran</option>'; // Reset options
-            data.restaurants.forEach((restaurant) => {
-              const option = document.createElement("option");
-              option.value = restaurant.name;
-              option.textContent = restaurant.name;
-              restaurantSelect.appendChild(option);
-            });
-          })
-          .catch((error) => console.error("Error loading restaurant data:", error));
-      }
+  fetch("restoran/data/resto.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const restaurantSelect = document.getElementById("restaurant");
+      restaurantSelect.innerHTML = '<option value="">Pilih Restoran</option>'; // Reset options
+      data.forEach((restaurant) => {
+        const option = document.createElement("option");
+        option.value = restaurant.id; // Use id for menu fetching
+        option.textContent = restaurant.nama;
+        restaurantSelect.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error loading restaurant data:", error));
+}
+
+// Load menu based on selected restaurant
+document.getElementById("restaurant").addEventListener("change", function () {
+  const selectedRestaurantId = this.value;
+  const menuSelect = document.getElementById("menu");
+  const menuContainer = document.getElementById("menuContainer");
+  
+  // Clear previous menu options
+  menuSelect.innerHTML = '<option value="">Pilih Menu</option>';
+  menuContainer.style.display = "none"; // Hide menu container initially
+
+  if (selectedRestaurantId) {
+    fetch("restoran/data/resto.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const restaurant = data.find(r => r.id == selectedRestaurantId);
+        if (restaurant && restaurant.menu) {
+          restaurant.menu.forEach((item) => {
+            const option = document.createElement("option");
+            option.value = item.nama; // Use menu name as value
+            option.textContent = `${item.nama} - ${item.harga}`;
+            menuSelect.appendChild(option);
+          });
+          menuContainer.style.display = "block"; // Show menu container
+        }
+      })
+      .catch((error) => console.error("Error loading menu data:", error));
+  }
+});
     </script>
 
     <footer class="site-footer">
